@@ -307,8 +307,9 @@ class Map {
     };
 
     protected resetView(center: Coordinates, zoom: number) {
-
         const limitZoom = this.limitZoom(zoom);
+
+        this.setZoom(limitZoom);
 
         Object.values(this.layers).forEach((layer) => {
             layer.redraw(center);
