@@ -14,12 +14,12 @@ export function wrapNum(x: number, [min, max]: number[], includeMax = false) {
     ;
 };
 
-export function template(string: string, data: any) {
-    return string.replace(/\{ *([\w_-]+) *\}/g, function (string, key) {
+export function template(templateString: string, data: any) {
+    return templateString.replace(/\{ *([\w_-]+) *\}/g, (variableName, key) => {
         const value = data[key];
 
         if (value === undefined) {
-            throw new Error("No value provided for variable " + string);
+            throw new Error("No value provided for variable " + variableName);
         }
 
         return value;

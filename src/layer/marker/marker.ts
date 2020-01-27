@@ -4,12 +4,14 @@ import Map from "../../map";
 import Point from "../../geometry/point";
 
 export type markerOptions = {
-    icon: string;
+    icon: string,
+    label: string,
 };
 
 class Marker extends Layer {
     protected options: markerOptions = {
         icon: "",
+        label: "",
     };
     protected map: Map = new Map({});
     protected marker: Point = new Point(0, 0);
@@ -31,6 +33,11 @@ class Marker extends Layer {
         return {
             offset: this.markerOffset.subtract((new Point(25/2, 41))).ceil(),
             src: this.options.icon,
+            label: this.options.label,
+            labelOffset: this.markerOffset
+                .subtract((new Point(25/2, 41)))
+                .add(new Point(4, 5))
+                .ceil(),
         };
 
     };

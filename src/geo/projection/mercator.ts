@@ -31,7 +31,6 @@ class Mercator implements ProjectionInterface {
         const ts = Math.exp(-point.getY() / EARTH_RADIUS);
 
         let phi = Math.PI / 2 - 2 * Math.atan(ts);
-        const con = 0;
 
         for (let i = 0, dphi = 0.1, con; i < 15 && Math.abs(dphi) > 1e-7; i++) {
             con = e * Math.sin(phi);

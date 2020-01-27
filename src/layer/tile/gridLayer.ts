@@ -205,7 +205,7 @@ abstract class GridLayer extends Layer {
         this.gridOffset = offset;
 
 
-            queue.sort(function ({point: pointA}, {point: pointB}) {
+        queue.sort(({point: pointA}, {point: pointB}) => {
             return pointA.distanceTo(tileCenter) - pointB.distanceTo(tileCenter);
         });
 

@@ -49,7 +49,7 @@ abstract class Crs {
 
     public getProjectedBounds(zoom: number) {
         if (this.infinite) {
-            new Bounds([
+            return new Bounds([
                 new Point(Number.NEGATIVE_INFINITY, Number.NEGATIVE_INFINITY),
                 new Point(Number.POSITIVE_INFINITY, Number.POSITIVE_INFINITY),
             ]);
